@@ -1,17 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MovieApp.Api.Model;
 using MovieApp.Api.Repository;
+using MovieApp.Api.Services;
 
 namespace MovieApp.Api
 {
@@ -27,8 +23,22 @@ namespace MovieApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMemoryCache();
+            //in-memory cache
             services.AddTransient<IMovieRepository, MovieRepository>();
+            services.AddTransient<ICharacterService<Character>, CharacterService>();
+
+            services.AddHttpClient("characterApi", (client) =>
+            {
+                client.BaseAddress = new Uri(Configuration.GetSection("ApiEndpoint").Value);
+                client.DefaultRequestHeaders.Add("Api-Version", "1.0");
+            });
+
+            services.AddMemoryCache();
+
+            services.AddDistributedRedisCache(options => {
+                options.Configuration = "localhost";
+                options.InstanceName = "MovieAppInstance";
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

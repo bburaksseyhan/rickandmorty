@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/burak.seyhan/Projects/MovieApp/MovieApp.Api/MovieApp.Api.csproj": {}
+    "/Users/burak.seyhan/Documents/GitHub/rickandmorty/MovieApp.Api.csproj": {}
   },
   "projects": {
-    "/Users/burak.seyhan/Projects/MovieApp/MovieApp.Api/MovieApp.Api.csproj": {
+    "/Users/burak.seyhan/Documents/GitHub/rickandmorty/MovieApp.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/burak.seyhan/Projects/MovieApp/MovieApp.Api/MovieApp.Api.csproj",
+        "projectUniqueName": "/Users/burak.seyhan/Documents/GitHub/rickandmorty/MovieApp.Api.csproj",
         "projectName": "MovieApp.Api",
-        "projectPath": "/Users/burak.seyhan/Projects/MovieApp/MovieApp.Api/MovieApp.Api.csproj",
+        "projectPath": "/Users/burak.seyhan/Documents/GitHub/rickandmorty/MovieApp.Api.csproj",
         "packagesPath": "/Users/burak.seyhan/.nuget/packages/",
-        "outputPath": "/Users/burak.seyhan/Projects/MovieApp/MovieApp.Api/obj/",
+        "outputPath": "/Users/burak.seyhan/Documents/GitHub/rickandmorty/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/burak.seyhan/.config/NuGet/NuGet.Config"
@@ -51,6 +51,18 @@
               "noWarn": [
                 "NU1605"
               ]
+            },
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Caching.Redis": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
